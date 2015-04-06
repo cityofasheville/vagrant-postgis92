@@ -161,7 +161,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
        "startup.sh"
     ];
     
-    scripts.each { |script| config.vm.provision :shell, :path => "scripts/vagrant/" << script }
+    scripts.each { |script| config.vm.provision :shell, :path => "scripts/" << script }
   end
   
 
