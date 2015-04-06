@@ -157,13 +157,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	  inlineScript << packageCmd << " " << packageList.join(" ") << " ; "
 	  config.vm.provision :shell, :inline => inlineScript
 
-    # scripts = [
-    #   "startup.sh",
-    #   "pdal.sh",
-    #   "pgpointcloud.sh"
-    # ];
-    #
-    # scripts.each { |script| config.vm.provision :shell, :path => "scripts/vagrant/" << script }
+    scripts = [
+       "startup.sh"
+    ];
+    
+    scripts.each { |script| config.vm.provision :shell, :path => "scripts/vagrant/" << script }
   end
   
 
