@@ -32,10 +32,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provider :virtualbox do |vb|
 
     # How much memory to use?
-    vb.customize ["modifyvm", :id, "--memory", 2048]
+    vb.customize ["modifyvm", :id, "--memory", 6048]
 
     # How many CPUs to use?
-    vb.customize ["modifyvm", :id, "--cpus", 1]
+    vb.customize ["modifyvm", :id, "--cpus", 2]
 
     # Fast I/O?
     # vb.customize ["modifyvm", :id, "--ioapic", "on"]
@@ -89,6 +89,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     "gtk2-devel",
     "geos-devel",
     "gdal-devel",
+    "gdal",
     "proj-devel",
     "proj-nad",
     "libxml2-devel",
@@ -132,14 +133,20 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     "postgresql92-devel",
     "postgresql92-server",
     "postgresql92-contrib",
-    "postgresql92-lib",
+    "postgresql92-libs",
     "postgis2_92"
   ];      
-    
+
+  packageGrpCmd = "yum groupinstall -y"
+  packageGrpList = [
+    "\"X Window System\""
+  ];
+
   # Run the initialization only the first time...
   if Dir.glob("#{File.dirname(__FILE__)}/.vagrant/machines/default/*/id").empty?
 
 	  inlineScript = ""
+    inlineGrpScript = ""
 
     if preCmd != ""
       inlineScript << preCmd << " ; "
@@ -156,6 +163,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	  # install packages we need we need
 	  inlineScript << packageCmd << " " << packageList.join(" ") << " ; "
 	  config.vm.provision :shell, :inline => inlineScript
+
+    inlineGrpScript << packageGrpCmd << " " << packageGrpList.join(" ") << " ; "
+    config.vm.provision :shell, :inline => inlineGrpScript
 
     scripts = [
        "startup.sh"
