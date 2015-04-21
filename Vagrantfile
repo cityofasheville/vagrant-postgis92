@@ -93,6 +93,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     "proj-devel",
     "proj-nad",
     "npm",
+    "s3cmd",
     "libxml2-devel",
     "json-c-devel",
     "CUnit-devel",
