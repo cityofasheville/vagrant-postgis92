@@ -1,3 +1,4 @@
+sudo cp /usr/share/zoneinfo/America/New_York /etc/localtime
 export PATH=$PATH:/usr/pgsql-9.2/bin
 sudo service postgresql-9.2 initdb
 sudo service postgresql-9.2 start

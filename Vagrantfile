@@ -92,6 +92,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     "gdal",
     "proj-devel",
     "proj-nad",
+    "npm",
     "libxml2-devel",
     "json-c-devel",
     "CUnit-devel",
