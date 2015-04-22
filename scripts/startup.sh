@@ -15,7 +15,7 @@ psql -U postgres -d template_postgis -c "CREATE extension pg_trgm;"
 psql -U postgres -d template_postgis -c "CREATE extension hstore;"
 createdb -U postgres -E 'UTF8' -D pg_default -T template_postgis -O postgres coagis
 
-thedate=`date +%d-%m-%Y`
+export thedate=`date +%d-%m-%Y`
 
 wget https://s3.amazonaws.com/simplictiy/schema/simplicty-schema_$thedate.sql
 psql -U postgres -d coagis -f simplicty-schema_$thedate.sql -a
