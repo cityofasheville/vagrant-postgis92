@@ -32,10 +32,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provider :virtualbox do |vb|
 
     # How much memory to use?
-    vb.customize ["modifyvm", :id, "--memory", 6048]
+    vb.customize ["modifyvm", :id, "--memory", 3048]
 
     # How many CPUs to use?
-    vb.customize ["modifyvm", :id, "--cpus", 2]
+    vb.customize ["modifyvm", :id, "--cpus", 1]
 
     # Fast I/O?
     # vb.customize ["modifyvm", :id, "--ioapic", "on"]
