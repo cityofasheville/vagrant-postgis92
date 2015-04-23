@@ -17,7 +17,7 @@ createdb -U postgres -E 'UTF8' -D pg_default -T template_postgis -O postgres coa
 
 export thedate=`date +%d-%m-%Y`
 
-wget https://s3.amazonaws.com/simplictiy/schema/simplicty-schema_$thedate.sql
+wget https://s3.amazonaws.com/simplicity-backups/simplicty-schema_$thedate.sql
 psql -U postgres -d coagis -f simplicty-schema_$thedate.sql -a
 
 wget https://s3.amazonaws.com/simplicity-backups/coa_address_azimuthal_from_street_view_hold_$thedate.back
