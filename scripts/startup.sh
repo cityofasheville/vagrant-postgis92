@@ -26,7 +26,7 @@ pg_restore -U postgres -a -d coagis coa_address_azimuthal_from_street_view_hold_
 wget https://s3.amazonaws.com/simplicity-backups/backups/coa_civicaddress_pinnum_centerline_xref_view_hold_$thedate.back
 pg_restore -U postgres -a -d coagis coa_civicaddress_pinnum_centerline_xref_view_hold_$thedate.back
 
-wget https://s3.amazonaws.com/simplicity-backups/backups/backups/coa_opendata_address_hold_$thedate.back
+wget https://s3.amazonaws.com/simplicity-backups/backups/coa_opendata_address_hold_$thedate.back
 pg_restore -U postgres -a -d coagis coa_opendata_address_hold_$thedate.back
 
 wget https://s3.amazonaws.com/simplicity-backups/backups/coa_opendata_asheville_neighborhoods_hold_$thedate.back
