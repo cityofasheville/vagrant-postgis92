@@ -17,43 +17,43 @@ createdb -U postgres -E 'UTF8' -D pg_default -T template_postgis -O postgres coa
 
 export thedate=`date +%d-%m-%Y`
 
-wget https://s3.amazonaws.com/simplicity-backups/simplicity_schema_$thedate.sql
+wget https://s3.amazonaws.com/simplicity-backups/backups/simplicity_schema_$thedate.sql
 psql -U postgres -d coagis -f simplicity_schema_$thedate.sql -a
 
-wget https://s3.amazonaws.com/simplicity-backups/coa_address_azimuthal_from_street_view_hold_$thedate.back
+wget https://s3.amazonaws.com/simplicity-backups/backups/coa_address_azimuthal_from_street_view_hold_$thedate.back
 pg_restore -U postgres -a -d coagis coa_address_azimuthal_from_street_view_hold_$thedate.back
 
-wget https://s3.amazonaws.com/simplicity-backups/coa_civicaddress_pinnum_centerline_xref_view_hold_$thedate.back
+wget https://s3.amazonaws.com/simplicity-backups/backups/coa_civicaddress_pinnum_centerline_xref_view_hold_$thedate.back
 pg_restore -U postgres -a -d coagis coa_civicaddress_pinnum_centerline_xref_view_hold_$thedate.back
 
-wget https://s3.amazonaws.com/simplicity-backups/coa_opendata_address_hold_$thedate.back
+wget https://s3.amazonaws.com/simplicity-backups/backups/backups/coa_opendata_address_hold_$thedate.back
 pg_restore -U postgres -a -d coagis coa_opendata_address_hold_$thedate.back
 
-wget https://s3.amazonaws.com/simplicity-backups/coa_opendata_asheville_neighborhoods_hold_$thedate.back
+wget https://s3.amazonaws.com/simplicity-backups/backups/coa_opendata_asheville_neighborhoods_hold_$thedate.back
 pg_restore -U postgres -a -d coagis coa_opendata_asheville_neighborhoods_hold_$thedate.back
 
-wget https://s3.amazonaws.com/simplicity-backups/coa_opendata_city_limits_hold_$thedate.back
+wget https://s3.amazonaws.com/simplicity-backups/backups/coa_opendata_city_limits_hold_$thedate.back
 pg_restore -U postgres -a -d coagis coa_opendata_city_limits_hold_$thedate.back
 
-wget https://s3.amazonaws.com/simplicity-backups/coa_opendata_crime_hold_$thedate.back
+wget https://s3.amazonaws.com/simplicity-backups/backups/coa_opendata_crime_hold_$thedate.back
 pg_restore -U postgres -j 4 -a -d coagis coa_opendata_crime_hold_$thedate.back
 
-wget https://s3.amazonaws.com/simplicity-backups/coa_opendata_permits_hold_$thedate.back
+wget https://s3.amazonaws.com/simplicity-backups/backups/coa_opendata_permits_hold_$thedate.back
 pg_restore -U postgres -j 4 -a -d coagis coa_opendata_permits_hold_$thedate.back
 
-wget https://s3.amazonaws.com/simplicity-backups/coa_opendata_property_hold_$thedate.back
+wget https://s3.amazonaws.com/simplicity-backups/backups/coa_opendata_property_hold_$thedate.back
 pg_restore -U postgres -j 4 -a -d coagis coa_opendata_property_hold_$thedate.back
 
-wget https://s3.amazonaws.com/simplicity-backups/coa_opendata_sanitation_districts_hold_$thedate.back
+wget https://s3.amazonaws.com/simplicity-backups/backups/coa_opendata_sanitation_districts_hold_$thedate.back
 pg_restore -U postgres -a -d coagis coa_opendata_sanitation_districts_hold_$thedate.back
 
-wget https://s3.amazonaws.com/simplicity-backups/coa_opendata_streets_hold_$thedate.back
+wget https://s3.amazonaws.com/simplicity-backups/backups/coa_opendata_streets_hold_$thedate.back
 pg_restore -U postgres -a -d coagis coa_opendata_streets_hold_$thedate.back
 
-wget https://s3.amazonaws.com/simplicity-backups/coa_opendata_zoning_hold_$thedate.back
+wget https://s3.amazonaws.com/simplicity-backups/backups/coa_opendata_zoning_hold_$thedate.back
 pg_restore -U postgres -a -d coagis coa_opendata_zoning_hold_$thedate.back
 
-wget https://s3.amazonaws.com/simplicity-backups/coa_opendata_zoning_overlays_hold_$thedate.back
+wget https://s3.amazonaws.com/simplicity-backups/backups/coa_opendata_zoning_overlays_hold_$thedate.back
 pg_restore -U postgres -a -d coagis coa_opendata_zoning_overlays_hold_$thedate.back
 
 uuidgen -r > ps.txt
